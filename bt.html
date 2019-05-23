@@ -1,0 +1,46 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script language="javascript">
+            var users = [
+                {departmentId: "DPM01", username: "user01", point: "5"},
+                {departmentId: "DPM02", username: "user02", point: "6"},
+                {departmentId: "DPM01", username: "user03", point: "9"}
+            ];
+
+            var departments = [
+                {id: "DPM01", code: "abc", name: "depa1", companyId: "CPN03"},
+                {id: "DPM02", code: "def", name: "depa2", companyId: "CPN03"},
+                {id: "DPM03", code: "ghi", name: "depa3", companyId: "CPN01"}
+            ];
+
+            var companies = [
+                {id: "CPN01", code: "abc", name: "copa1"},
+                {id: "CPN02", code: "def", name: "copa2"},
+                {id: "CPN03", code: "ghi", name: "copa3"}
+            ];
+
+            function returnArray(users, departments, companies) {
+                var aCompanies = [];
+                for (var i = 0; i < companies.length; i++) {
+                    var aDepartments = [];
+                    for (var j = 0; j < departments.length; j++) {
+                        if (companies[i].id === departments[j].companyId) {
+                            var aUsers = [];
+                            for (var k = 0; k < users.length; k++) {
+                                if (departments[j].id === users[k].departmentId){
+                                    aUsers.push({"username": users[k].username, "point": users[k].point});
+                                }
+                            }
+                            aDepartments.push({"departmentCode,": departments[j].code, "departmentName": departments[j].name, "users": arrUsers});
+                        }
+                    }
+                    aCompanies.push({"companyCode": companies[i].code, "companyName": companies[i].name, "departments": arrDept});
+                }
+                return aCompanies;
+            }
+        </script>
+    </body>
+</html>
